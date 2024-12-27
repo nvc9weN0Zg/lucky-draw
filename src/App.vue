@@ -35,6 +35,7 @@
             class="itemres"
             :style="resCardStyle"
             :data-id="item"
+            :name="list.find((d) => d.key === item).name"
             @click="showRes = false"
             :class="{
               numberOver:
@@ -93,7 +94,6 @@
     <Result :visible.sync="showResult"></Result>
 
     <span class="copy-right">
-      Copyright©zhangyongfeng5350@gmail.com
     </span>
 
     <audio
@@ -472,8 +472,8 @@ export default {
       align-items: center;
     }
     &.numberOver::before {
-      content: attr(data-id);
-      width: 30px;
+      content: attr(name);
+      width: 45px;
       height: 22px;
       line-height: 22px;
       background-color: #fff;
