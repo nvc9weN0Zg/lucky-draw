@@ -1,6 +1,6 @@
 ## 年会抽奖
 
-[演示地址](https://vitozyf.github.io/lucky-draw/index.html#/?tdsourcetag=s_pctim_aiomsg)
+[演示地址](https://nvc9wen0zg.github.io/lucky-draw/)
 
 ## 使用说明
 
@@ -53,10 +53,6 @@
 ## Donation
 
 如果这个开源项目对您有帮助，请作者喝杯咖啡吧
-
-Email: vito.z@qq.com
-
-![payimg](./public/pay.png)
 
 ## License
 
