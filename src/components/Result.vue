@@ -1,19 +1,21 @@
 <template>
   <el-dialog
-    :visible="visible"
-    @close="$emit('update:visible', false)"
+    :model-value="visible"
+    @update:model-value="$emit('update:visible', $event)"
     width="600px"
     class="c-Result"
     :append-to-body="true"
   >
-    <div class="dialog-title" slot="title">
-      <span :style="{ fontSize: '18px' }">
-        抽奖结果
-      </span>
-      <span :style="{ fontSize: '14px', color: '#999', marginLeft: '10px' }">
-        (点击号码可以删除)
-      </span>
-    </div>
+    <template #header>
+      <div class="dialog-title">
+        <span :style="{ fontSize: '18px' }">
+          抽奖结果
+        </span>
+        <span :style="{ fontSize: '14px', color: '#999', marginLeft: '10px' }">
+          (点击号码可以删除)
+        </span>
+      </div>
+    </template>
     <div
       v-for="(item, index) in resultList"
       :key="index"

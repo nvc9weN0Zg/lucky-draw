@@ -1,9 +1,9 @@
 <template>
   <el-dialog
-    :visible="visible"
+    :model-value="visible"
+    @update:model-value="$emit('update:visible', $event)"
     :append-to-body="true"
     width="300px"
-    @close="$emit('update:visible', false)"
     class="c-Importphoto"
   >
     <el-row>

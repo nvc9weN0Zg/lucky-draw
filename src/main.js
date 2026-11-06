@@ -1,17 +1,14 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import Element from 'element-ui';
+import ElementPlus from 'element-plus';
 import '@/assets/style/index.scss';
-import 'element-ui/lib/theme-chalk/index.css';
+import 'element-plus/dist/index.css';
 import '@/assets/lib/tagcanvas.js';
-Vue.config.productionTip = false;
 
-Vue.use(Element);
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app');
+createApp(App)
+  .use(router)
+  .use(store)
+  .use(ElementPlus)
+  .mount('#app');

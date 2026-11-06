@@ -14,7 +14,7 @@
     </el-button>
     <el-dialog
       :append-to-body="true"
-      :visible.sync="showSetwat"
+      v-model="showSetwat"
       class="setwat-dialog"
       width="400px"
     >
@@ -79,7 +79,7 @@
 
     <el-dialog
       :append-to-body="true"
-      :visible.sync="showImport"
+      v-model="showImport"
       class="import-dialog"
       width="400px"
     >
@@ -101,12 +101,12 @@
       </div>
     </el-dialog>
     <Importphoto
-      :visible.sync="showImportphoto"
+      v-model:visible="showImportphoto"
       @getPhoto="$emit('getPhoto')"
     ></Importphoto>
 
     <el-dialog
-      :visible.sync="showRemoveoptions"
+      v-model="showRemoveoptions"
       width="300px"
       class="c-removeoptions"
       :append-to-body="true"

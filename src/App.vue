@@ -83,7 +83,7 @@
       ></i>
     </el-button>
 
-    <LotteryConfig :visible.sync="showConfig" @resetconfig="reloadTagCanvas" />
+    <LotteryConfig v-model:visible="showConfig" @resetconfig="reloadTagCanvas" />
     <Tool
       @toggle="toggle"
       @resetConfig="reloadTagCanvas"
@@ -91,7 +91,7 @@
       :running="running"
       :closeRes="closeRes"
     />
-    <Result :visible.sync="showResult"></Result>
+    <Result v-model:visible="showResult"></Result>
 
     <span class="copy-right">
     </span>
@@ -210,7 +210,7 @@ export default {
       newLottery.forEach((item) => {
         this.$store.commit('setNewLottery', item);
         if (!config[item.key]) {
-          this.$set(config, item.key, 0);
+          config[item.key] = 0;
         }
       });
       this.$store.commit('setConfig', config);
@@ -251,7 +251,7 @@ export default {
     }, 1000);
     window.addEventListener('resize', this.reportWindowSize);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.reportWindowSize);
   },
   methods: {
@@ -356,7 +356,7 @@ export default {
 
         this.category = category;
         if (!this.result[category]) {
-          this.$set(this.result, category, []);
+          this.result[category] = [];
         }
         const oldRes = this.result[category] || [];
         const data = Object.assign({}, this.result, {
