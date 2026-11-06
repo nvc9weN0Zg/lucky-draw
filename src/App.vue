@@ -293,10 +293,11 @@ export default {
     },
     createCanvas() {
       const canvas = document.createElement('canvas');
-      canvas.width = document.body.offsetWidth;
-      canvas.height = document.body.offsetHeight;
+      const main = this.$el.querySelector('#main');
+      canvas.width = main.clientWidth;
+      canvas.height = main.clientHeight;
       canvas.id = 'rootcanvas';
-      this.$el.querySelector('#main').appendChild(canvas);
+      main.appendChild(canvas);
     },
     startTagCanvas() {
       this.createCanvas();
@@ -375,7 +376,7 @@ export default {
   height: 100%;
   position: relative;
   background-image: url('./assets/bg1.jpg');
-  background-size: 100% 100%;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #121936;
@@ -387,6 +388,7 @@ export default {
     height: 50px;
     line-height: 50px;
     position: relative;
+    z-index: 1;
     .el-button {
       position: absolute;
       top: 17px;
@@ -431,7 +433,16 @@ export default {
   }
 }
 #main {
-  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+#rootcanvas {
+  display: block;
+}
+
+#audiobg {
+  display: none;
 }
 
 #resbox {
