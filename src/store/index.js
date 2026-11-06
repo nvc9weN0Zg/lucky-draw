@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 import {
   setData,
   resultField,
@@ -7,9 +6,7 @@ import {
   listField
 } from '@/helper/index';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     config: {
       name: 'Elekta2025年会抽奖',

@@ -1,23 +1,26 @@
 <template>
   <el-dialog
-    :visible="visible"
+    :model-value="visible"
+    @update:model-value="$emit('update:visible', $event)"
     :append-to-body="true"
     width="390px"
     @close="$emit('update:visible', false)"
     class="c-LotteryConfig"
   >
-    <div class="c-LotteryConfigtitle" slot="title">
-      <span :style="{ fontSize: '16px', marginRight: '20px' }">
-        抽奖配置
-      </span>
-      <el-button size="mini" @click="addLottery">增加奖项</el-button>
-      <el-button size="mini" type="primary" @click="onSubmit"
-        >保存配置</el-button
-      >
-      <el-button size="mini" @click="$emit('update:visible', false)"
-        >取消</el-button
-      >
-    </div>
+    <template #header>
+      <div class="c-LotteryConfigtitle">
+        <span :style="{ fontSize: '16px', marginRight: '20px' }">
+          抽奖配置
+        </span>
+        <el-button size="mini" @click="addLottery">增加奖项</el-button>
+        <el-button size="mini" type="primary" @click="onSubmit"
+          >保存配置</el-button
+        >
+        <el-button size="mini" @click="$emit('update:visible', false)"
+          >取消</el-button
+        >
+      </div>
+    </template>
     <div class="container">
       <el-form ref="form" :model="form" size="mini">
         <el-form-item label="抽奖标题">
@@ -60,12 +63,14 @@
     </div>
 
     <el-dialog
-      :visible.sync="showAddLottery"
+      v-model="showAddLottery"
       :append-to-body="true"
       width="300px"
       class="dialog-showAddLottery"
     >
-      <div class="add-title" slot="title">增加奖项</div>
+      <template #header>
+        <div class="add-title">增加奖项</div>
+      </template>
       <el-form ref="newLottery" :model="newLottery" size="mini">
         <el-form-item label="奖项名称">
           <el-input v-model="newLottery.name"></el-input>
