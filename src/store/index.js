@@ -6,10 +6,12 @@ import {
   listField
 } from '@/helper/index';
 
+const getDefaultLotteryName = () => `Elekta${new Date().getFullYear()}年会抽奖`;
+
 export default createStore({
   state: {
     config: {
-      name: 'Elekta2025年会抽奖',
+      name: getDefaultLotteryName(),
       number: 70,
       firstPrize: 1
     },
@@ -23,7 +25,7 @@ export default createStore({
   mutations: {
     setClearConfig(state) {
       state.config = {
-        name: 'Elekta2025年会抽奖',
+        name: getDefaultLotteryName(),
         number: 70,
         firstPrize: 1
       };
@@ -42,7 +44,7 @@ export default createStore({
     },
     setClearStore(state) {
       state.config = {
-        name: 'Elekta2025年会抽奖',
+        name: getDefaultLotteryName(),
         number: 70,
         firstPrize: 1
       };
