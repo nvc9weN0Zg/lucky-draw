@@ -35,7 +35,7 @@
             class="itemres"
             :style="resCardStyle"
             :data-id="item"
-            :name="list.find((d) => d.key === item).name"
+            :name="(list.find((d) => d.key === item) || {}).name || ''"
             @click="showRes = false"
             :class="{
               numberOver:
